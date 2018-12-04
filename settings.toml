@@ -1,0 +1,12 @@
+
+[basic]
+# This string will be replaced in url templates with the url-encoded search 
+# query string
+search_query_placeholder = "{{{s}}}"
+
+
+[[search_engine]]
+name = "SBRL Git Service"
+icon_url = "https://git.starbeamrainbowlabs.com/img/favicon.png"
+bang = "git"
+url_template = "https://git.starbeamrainbowlabs.com/explore/code?q={{{s}}}"
