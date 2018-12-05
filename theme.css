@@ -5,7 +5,10 @@ body {
 	font-family: sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 { text-align: center;}
+
 table {
+	margin: 0 auto;
 	border-collapse: collapse;
 }
 
