@@ -5,10 +5,12 @@ namespace SBRL;
 /**
  * A teeny-tiny templating engine.
  * @author			Starbeamrainbowlabs
- * @version			v0.1
+ * @version			v0.2
  * @lastModified	23rd August 2018
  * @license			https://www.mozilla.org/en-US/MPL/2.0/	Mozilla Public License 2.0
  * Changelog:
+	 * v0.2:
+	 	 * Don't replace if a value can't be found
  	 * v0.1:
  	 	 * Initial release
  */
@@ -59,7 +61,7 @@ class NightInk
 	 */
 	public function render($template, $options) {
 		return preg_replace_callback(
-			"/\{\{?([^}]*)\}\}?/iu",
+			"/\{\{?([^{}]*)\}\}?/iu",
 			function($matches) use($options) {
 				// {{key}} {key} parsing
 				$parts = array_filter(
@@ -69,6 +71,9 @@ class NightInk
 				
 				$sub_data = strval(count($parts) > 0 ? $this->locate_part($options, $parts) : $options);
 				
+				if($sub_data == null)
+					return $matches[0];
+				
 				// The first char has to be a { anyway - so if the second char is a {, then it *has* to be {{
 				if($matches[0][1] == "{")
 					$sub_data = htmlentities($sub_data);
@@ -76,7 +81,7 @@ class NightInk
 				return $sub_data;
 			},
 			preg_replace_callback(
-				"/\{#each\s+([^}]+)\}(.*)\{#endeach\}/imus",
+				"/\{#each\s+([^{}]+)\}(.*)\{#endeach\}/imus",
 				function($matches) use($options) {
 					// {#each key} parsing
 					// 0: full thing
