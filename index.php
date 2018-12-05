@@ -61,6 +61,7 @@ switch($action) {
 		if(!empty($bang_matches)) {
 			$bang = $bang_matches[0];
 			$bang_trimmed = trim($bang, "!");
+			// TODO: Replace this with a lookup table - maybe in the toml settings file if we can figure out how to structure this?
 			foreach($settings->get("search_engine") as $engine) {
 				if($engine["bang"] != $bang_trimmed)
 					continue;
