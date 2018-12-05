@@ -4,9 +4,25 @@
 # query string
 search_query_placeholder = "{{{s}}}"
 
+# If no !bangs were found, or no !bangs are recognised, then we'll redirect 
+# the query here
+default_template = "https://duckduckgo.com/?q={{{s}}}&t=canonical"
+
 
 [[search_engine]]
 name = "SBRL Git Service"
 icon_url = "https://git.starbeamrainbowlabs.com/img/favicon.png"
 bang = "git"
 url_template = "https://git.starbeamrainbowlabs.com/explore/code?q={{{s}}}"
+
+[[search_engine]]
+name = "repl.it"
+icon_url = "https://repl.it/public/images/favicon.ico"
+bang = "repl"
+url_template = "https://repl.it/repls?search={{{s}}}"
+
+[[search_engine]]
+name = "Radical Fish Games"
+icon_url = "http://www.radicalfishgames.com/wp-content/themes/radicalfishgames2/images/favicon.ico"
+bang = "rfg"
+url_template = "http://www.radicalfishgames.com/?s={{{s}}}"

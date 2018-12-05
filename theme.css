@@ -20,6 +20,8 @@ td, th {
 	text-align: left;
 	padding: 0.25em 0.45em;
 }
+/* Icons */
+td:first-child { text-align: center; }
 
 .icon {
 	max-width: 2em;
