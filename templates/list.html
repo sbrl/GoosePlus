@@ -15,15 +15,17 @@
 				<th>URL</th>
 			</tr>
 			
-			{{search_engines}}
+			{#each search_engines}
+			<tr>
+				<td><img class="icon" src='{{icon_url}}' /></td>
+				<td>!{{bang}}</td>
+				<td>{{name}}</td>
+				<td><code>{{url_template}}</code></td>
+			</tr>
+			{#endeach}
 		</table>
 		
 		<!---------------->
-		<style>
-			html, body { font-size: 100%; }
-			body {
-			    font-family: sans-serif;
-			}
-		</style>
+		<link rel="stylesheet" href="theme.css" />
 	</body>
 </html>

@@ -1,0 +1,24 @@
+html, body { font-size: 100%; }
+body {
+	background: #333333;
+	color: #eeeeee;
+	font-family: sans-serif;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+	background: #444444;
+}
+
+td, th {
+	text-align: left;
+	padding: 0.25em 0.45em;
+}
+
+.icon {
+	max-width: 2em;
+	max-height: 2em;
+}
