@@ -8,12 +8,23 @@ require("./vendor/autoload.php");
 require("./TomlConfig.php");
 require("./NightInk.php");
 
+$renderer = new \SBRL\NightInk();
+
 $perfdata->autoload = microtime(true);
 
 // Phase 2: Loading Settings
 $settings = new \SBRL\TomlConfig("settings.toml", "settings.default.toml");
 
 $perfdata->settings_load = microtime(true);
+
+// Phase 2.5: Auth
+if($settings->get("auth.require_secret")) {
+	$specified_secret = $_GET["secret"] ?? null;
+	if($specified_secret !== $settings->get("auth.secret")) {
+		http_response_code(401);
+		exit($renderer->render_file("./templates/wrong_secret.html", []));
+	}
+}
 
 // Phase 3: Action parsing
 $action = $_GET["action"] ?? "redirect";
@@ -27,7 +38,6 @@ switch($action) {
 	 * ███████ ██ ███████    ██
 	 */
 	case "help":
-		$renderer = new \SBRL\NightInk();
 		echo($renderer->render_file("./templates/list.html", [
 			"search_engines" => $settings->get("search_engine")
 		]));

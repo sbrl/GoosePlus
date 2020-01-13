@@ -8,6 +8,19 @@ search_query_placeholder = "{{{s}}}"
 # the query here
 default_template = "https://duckduckgo.com/?q={{{s}}}&t=canonical"
 
+[auth]
+# Whether to require a secret to make searches
+require_secret = false
+# The secret that should be specified in the "secret" GET parameter to make a query.
+# Has no effect if auth.require_secret is set to false.
+# The following bash one-liner might be helpful for generating a secret:
+# 
+#     dd if=/dev/urandom count=32 bs=1 2>/dev/null | base64 | tr -d '=+/'
+# 
+# Change the 32 there to alter the number of characters generated.
+secret = "INSERT_SECRET_HERE"
+
+
 
 [[search_engine]]
 name = "SBRL Git Service"
