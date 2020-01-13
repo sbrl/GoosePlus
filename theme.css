@@ -42,3 +42,7 @@ td:first-child { text-align: center; }
 	max-width: 2em;
 	max-height: 2em;
 }
+
+code {
+	word-wrap: anywhere;
+}
