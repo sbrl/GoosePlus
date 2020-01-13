@@ -3,7 +3,8 @@
     "description": "Create your own custom DuckDuckGo !bangs !",
     "type": "project",
     "require": {
-        "yosymfony/toml": "^1.0"
+        "yosymfony/toml": "^1.0",
+        "endroid/qr-code": "^3.7"
     },
     "license": "MPL-2.0",
     "authors": [
