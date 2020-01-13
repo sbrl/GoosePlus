@@ -36,9 +36,9 @@ url_template = "https://repl.it/repls?search={{{s}}}"
 
 [[search_engine]]
 name = "Radical Fish Games"
-icon_url = "http://www.radicalfishgames.com/wp-content/themes/radicalfishgames2/images/favicon.ico"
+icon_url = "https://www.radicalfishgames.com/wp-content/themes/radicalfishgames2/images/favicon.ico"
 bang = "rfg"
-url_template = "http://www.radicalfishgames.com/?s={{{s}}}"
+url_template = "https://www.radicalfishgames.com/?s={{{s}}}"
 
 [[search_engine]]
 name = "runpkg"
