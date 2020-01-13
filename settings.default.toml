@@ -39,3 +39,9 @@ name = "Radical Fish Games"
 icon_url = "http://www.radicalfishgames.com/wp-content/themes/radicalfishgames2/images/favicon.ico"
 bang = "rfg"
 url_template = "http://www.radicalfishgames.com/?s={{{s}}}"
+
+[[search_engine]]
+name = "runpkg"
+icon_url = "https://www.runpkg.com/favicon.ico"
+bang = "runpkg"
+url_template = "https://www.runpkg.com/?{{{s}}}"
