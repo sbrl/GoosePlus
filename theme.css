@@ -7,6 +7,20 @@ body {
 
 h1, h2, h3, h4, h5, h6 { text-align: center;}
 
+input[type=search] {
+	width: 80%;
+	padding: 0.35em 0.45em;
+	background: #444444;
+	border: 0;
+	border-bottom: 0.25em solid #555555;
+	color: #eeeeee;
+	font-size: 1.2em;
+	transition: border 0.25s;
+}
+input[type=search]:focus {
+	border-bottom: 0.25em solid #aaa;
+}
+
 table {
 	margin: 0 auto;
 	border-collapse: collapse;
