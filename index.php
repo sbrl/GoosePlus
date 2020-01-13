@@ -43,8 +43,9 @@ switch($action) {
 	 */
 	case "redirect":
 		if(!isset($_GET["query"])) {
-			http_response_code(422);
+			http_response_code(307);
 			header("content-type: text/plain");
+			header("location: ?action=help");
 			exit("Error: Required 'query' GET parameter wasn't specified.");
 		}
 		
