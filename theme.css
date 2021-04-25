@@ -1,7 +1,35 @@
+:root {
+	--col-bg: #f3f3f3;
+	--col-text: #333333;
+	
+	--col-bg-alt: #dddddd;
+	--col-input-border: #cccccc;
+	
+	--col-highlight: #999999;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+		--col-bg: #333333;
+		--col-text: #eeeeee;
+		
+		--col-bg-alt: #444444;
+		--col-input-border: #555555;
+		
+		--col-highlight: #aaaaaa;
+    }
+	
+	a { color: hsl(208, 67%, 67%); }
+	a:hover { color: hsl(214, 67%, 75%); }
+	a:active, a:focus { color: hsl(214, 87%, 85%); }
+	a:visited { color: hsl(264, 77%, 65%); }
+}
+
+
 html, body { font-size: 100%; }
 body {
-	background: #333333;
-	color: #eeeeee;
+	background: var(--col-bg);
+	color: var(--col-text);
 	font-family: sans-serif;
 	text-align: center;
 }
@@ -11,16 +39,19 @@ h1, h2, h3, h4, h5, h6 { text-align: center;}
 input[type=search] {
 	width: 80%;
 	padding: 0.35em 0.45em;
-	background: #444444;
+	background: var(--col-bg-alt);
 	border: 0;
-	border-bottom: 0.25em solid #555555;
-	color: #eeeeee;
+	border-bottom: 0.25em solid var(--col-input-border);
+	color: var(--col-text);
 	font-size: 1.2em;
-	transition: border 0.25s;
+	transition: border 0.2s;
 }
 input[type=search]:focus {
-	border-bottom: 0.25em solid #aaa;
+	border-bottom: 0.25em solid var(--col-highlight);
 }
+
+a { transition: color 0.2s; }
+a:focus { outline-width: 0.15em; }
 
 table {
 	margin: 0 auto;
@@ -28,7 +59,7 @@ table {
 }
 
 tr:nth-child(even) {
-	background: #444444;
+	background: var(--col-bg-alt);
 }
 
 td, th {
@@ -41,6 +72,8 @@ td:first-child { text-align: center; }
 .icon {
 	max-width: 2em;
 	max-height: 2em;
+	
+	vertical-align: middle;
 }
 
 code {
