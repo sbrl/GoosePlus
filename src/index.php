@@ -46,7 +46,8 @@ switch($action) {
 		echo($renderer->render_file("./templates/list.html", [
 			"name" => $settings->get("name"),
 			"description" => $settings->get("description"),
-			"search_engines" => $settings->get("search_engine")
+			"search_engines" => $settings->get("search_engine"),
+			"secret" => $settings->get("auth.secret")
 		]));
 		break;
 	
