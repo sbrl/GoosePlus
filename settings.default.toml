@@ -1,3 +1,5 @@
+name = "GoosePlus"
+description = "Honk."
 
 [basic]
 # This string will be replaced in url templates with the url-encoded search 

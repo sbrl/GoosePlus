@@ -5,8 +5,9 @@ $perfdata->start = microtime(true);
 
 // Phase 1: Autoloading
 require("./vendor/autoload.php");
-require("./TomlConfig.php");
-require("./NightInk.php");
+require("./lib/TomlConfig.php");
+require("./lib/NightInk.php");
+require("./lib/full_url.php");
 
 $renderer = new \SBRL\NightInk();
 
@@ -16,6 +17,8 @@ $perfdata->autoload = microtime(true);
 $settings = new \SBRL\TomlConfig("settings.toml", "settings.default.toml");
 
 $perfdata->settings_load = microtime(true);
+
+$endpoint = full_url_noquery();
 
 // Phase 2.5: Auth
 if($settings->get("auth.require_secret")) {
@@ -102,5 +105,22 @@ switch($action) {
 			round($perfdata->settings_load - $perfdata->autoload, 5) . "ms settings, " .
 			round(microtime(true) - $perfdata->settings_load, 5) . "ms destination calc"
 		);
+		break;
+	
+	
+	/*
+	 * ██████  ██████  ███████ ███    ██ ███████ ███████  █████  ██████   ██████ ██   ██
+	 *██    ██ ██   ██ ██      ████   ██ ██      ██      ██   ██ ██   ██ ██      ██   ██
+	 *██    ██ ██████  █████   ██ ██  ██ ███████ █████   ███████ ██████  ██      ███████
+	 *██    ██ ██      ██      ██  ██ ██      ██ ██      ██   ██ ██   ██ ██      ██   ██
+	 * ██████  ██      ███████ ██   ████ ███████ ███████ ██   ██ ██   ██  ██████ ██   ██
+	 */
+	case "opensearch":
+		header("content-type: application/opensearch+xml");
+		echo($renderer->render_file("./templates/opensearch.xml", [
+			"base_url" => $endpoint,
+			"name" => $settings->get("name"),
+			"description" => $settings->get("description")
+		]));
 		break;
 }
