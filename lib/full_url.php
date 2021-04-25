@@ -10,9 +10,8 @@
  */
 function url_origin( $s = false, $use_forwarded_host = false )
 {
-	global $env;
 	if($s === false) $s = $_SERVER;
-	$ssl      = $env->is_secure;
+	$ssl      = !empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off';
 	$sp       = strtolower( $s['SERVER_PROTOCOL'] );
 	$protocol = substr( $sp, 0, strpos( $sp, '/' ) ) . ( ( $ssl ) ? 's' : '' );
 	$port     = $s['SERVER_PORT'];
