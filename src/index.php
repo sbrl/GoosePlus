@@ -4,7 +4,7 @@ $perfdata = new stdClass();
 $perfdata->start = microtime(true);
 
 // Phase 1: Autoloading
-require("./vendor/autoload.php");
+require("../vendor/autoload.php");
 require("./lib/TomlConfig.php");
 require("./lib/NightInk.php");
 require("./lib/full_url.php");
@@ -14,7 +14,9 @@ $renderer = new \SBRL\NightInk();
 $perfdata->autoload = microtime(true);
 
 // Phase 2: Loading Settings
-$settings = new \SBRL\TomlConfig("settings.toml", "settings.default.toml");
+if(!file_exists("../data"))
+	mkdir("../data", 0700);
+$settings = new \SBRL\TomlConfig("../data/settings.toml", "../settings.default.toml");
 
 $perfdata->settings_load = microtime(true);
 
