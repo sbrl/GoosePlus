@@ -5,6 +5,8 @@
 
 This project needs a better name.
 
+Demo: <https://search.starbeamrainbowlabs.com/>
+
 ## System Requirements
  - Linux (Windows may work too, but is untested)
  - PHP-enabled web server (Nginx + PHP-FPM is recommended)
