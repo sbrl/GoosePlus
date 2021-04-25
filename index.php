@@ -116,7 +116,7 @@ switch($action) {
 	 * ██████  ██      ███████ ██   ████ ███████ ███████ ██   ██ ██   ██  ██████ ██   ██
 	 */
 	case "opensearch":
-		header("content-type: application/opensearch+xml");
+		header("content-type: application/opensearchdescription+xml");
 		echo($renderer->render_file("./templates/opensearch.xml", [
 			"base_url" => $endpoint,
 			"name" => $settings->get("name"),
