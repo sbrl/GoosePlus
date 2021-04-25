@@ -5,7 +5,8 @@
 	
 	<ShortName>{{name}}</ShortName>
 	<Description>{{description}}</Description>
-	<Image height="16" width="16" type="image/x-icon">{{base_url}}/favicon.ico</Image>
+	<Image height="16" width="16" type="image/png">{{base_url}}/favicon.ico</Image>
+	<Image height="512" width="512" type="image/png">{{base_url}}/favicon-512.ico</Image>
 	<Url type="text/html" method="get" template="{{base_url}}?action=redirect&amp;query={searchTerms}" />
 	
 </OpenSearchDescription>
