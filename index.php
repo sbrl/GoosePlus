@@ -42,6 +42,8 @@ switch($action) {
 	 */
 	case "help":
 		echo($renderer->render_file("./templates/list.html", [
+			"name" => $settings->get("name"),
+			"description" => $settings->get("description"),
 			"search_engines" => $settings->get("search_engine")
 		]));
 		break;
