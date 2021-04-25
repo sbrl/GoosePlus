@@ -1,4 +1,5 @@
 .serenata/
+data/
 
 # The custom settings file
 settings.toml
